@@ -8,6 +8,17 @@ from PyQt6.QtGui import QIcon, QFont, QAction, QKeySequence, QShortcut, QDesktop
 import os
 import json
 from pathlib import Path
+import sys
+
+def resource_path(relative_path):
+    """获取资源的绝对路径"""
+    try:
+        # PyInstaller创建临时文件夹，将路径存储在_MEIPASS中
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    
+    return os.path.join(base_path, relative_path)
 
 class MainWindow(QMainWindow):
     def __init__(self, ps_controller):
@@ -267,7 +278,8 @@ class MainWindow(QMainWindow):
 
         # 添加猫咪图标
         logo_label = QLabel()
-        logo_pixmap = QPixmap("mao.png")
+        # 使用resource_path获取图片路径
+        logo_pixmap = QPixmap(resource_path("mao.png"))
         
         # 直接使用原始图片大小或设置一个固定大小
         icon_size = 48  # 或者使用您想要的大小

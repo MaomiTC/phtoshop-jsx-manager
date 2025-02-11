@@ -1,0 +1,2 @@
+('C:\\Users\\Administrator\\Documents\\GitHub\\phtoshop-jsx-mannger\\build\\PS-JSX-Manager\\PYZ-00.pyz',
+ [])
